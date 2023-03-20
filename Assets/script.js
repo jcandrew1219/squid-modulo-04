@@ -1,17 +1,22 @@
 var counter = 0;
+var timer = 75;
 var body = document.body;
+var countdown = document.querySelector("countdown");
+//Start Page
 var h1El = document.createElement("h1");
 var pEl = document.createElement("p");
 var buttonStart = document.createElement("button");
-
+//Question Pages
 var questionList = document.createElement("ul");
 var answerOne = document.createElement("li");
 var answerTwo = document.createElement("li");
 var answerThree = document.createElement("li");
 var answerFour = document.createElement("li");
-
+//Checked Answer Messege
 var pageDivider = document.createElement("hr");
 var displayMsg = document.createElement("h2");
+//Final Scores Page
+
 
 var quizQuestions = [
     ["Which of the following is not a commonly used data type?", "1. Numbers", "2. Strings", "3. Integers", "4. Boolean"],
@@ -61,24 +66,24 @@ function initializeQuiz() {
 
 function quizQuestion(event) {
     
-    console.log(counter);
+    checkQuestion(event);
+    counter++;
     h1El.textContent = quizQuestions[counter][0];
     answerOne.textContent = quizQuestions[counter][1];
-    console.log(quizQuestions[counter][1]);
     answerTwo.textContent = quizQuestions[counter][2];
     answerThree.textContent = quizQuestions[counter][3];
     answerFour.textContent = quizQuestions[counter][4];
-
-    console.log(event.target.textContent);
-    console.log(counter);
-    counter++;
-    checkQuestion(event);
-    return;
+    //console.log(event.target.textContent);
+    if(counter === 4) {
+        finalScore();
+    }
+    
+    
 }
 
 function checkQuestion(event) {
     if(event.target.textContent == "Start Quiz") {
-        return;
+        return 0;
     } if((event.target.textContent == quizQuestions[0][3]) || (event.target.textContent == quizQuestions[1][2]) || (event.target.textContent == quizQuestions[2][4]) || (event.target.textContent == quizQuestions[3][1]) || (event.target.textContent == quizQuestions[4][1])) {
         displayMsg.textContent = "Correct";
         body.appendChild(pageDivider);
@@ -87,7 +92,6 @@ function checkQuestion(event) {
             pageDivider.remove();
             displayMsg.textContent = "";
         }, 3000);
-        return;
     } else {
         displayMsg.textContent = "Wrong";
         body.appendChild(pageDivider);
@@ -96,13 +100,23 @@ function checkQuestion(event) {
             pageDivider.remove();
             displayMsg.textContent = "";
         }, 3000);
-        return;
     }
+}
+
+function finalScore() {
+
+}
+
+function setTimer() {
+    var timerInterval = setInterval(function() {
+        timer--;
+        countdown.textContent = timer;
+    }, 1000);
 }
 
 
 quizStart();
-buttonStart.addEventListener("click", initializeQuiz);
+buttonStart.addEventListener("click", initializeQuiz, setTimer);
 answerOne.addEventListener("click", quizQuestion);
 answerTwo.addEventListener("click", quizQuestion);
 answerThree.addEventListener("click", quizQuestion);
