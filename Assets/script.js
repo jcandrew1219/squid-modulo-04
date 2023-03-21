@@ -93,10 +93,10 @@ function initializeQuiz() {
     answerThree.textContent = quizQuestions[counter][3];
     answerFour.textContent = quizQuestions[counter][4];
     
-    answerOne.setAttribute("style", "width:fit-content; text-align:left; margin:1% 25%; background-color:#AA36B5; color:#FFFFFF; border-radius:5px; padding:2px 7px;");
-    answerTwo.setAttribute("style", "width:fit-content; text-align:left; margin:1% 25%; background-color:#AA36B5; color:#FFFFFF; border-radius:5px; padding:2px 7px;");
-    answerThree.setAttribute("style", "width:fit-content; text-align:left; margin:1% 25%; background-color:#AA36B5; color:#FFFFFF; border-radius:5px; padding:2px 7px;");
-    answerFour.setAttribute("style", "width:fit-content; text-align:left; margin:1% 25%; background-color:#AA36B5; color:#FFFFFF; border-radius:5px; padding:2px 7px;");
+    answerOne.setAttribute("style", "width:fit-content; text-align:left; margin:1% 25%; background-color:#AA36B5; color:#FFFFFF; border:1px solid #000; border-radius:5px; padding:2px 7px;");
+    answerTwo.setAttribute("style", "width:fit-content; text-align:left; margin:1% 25%; background-color:#AA36B5; color:#FFFFFF; border:1px solid #000; border-radius:5px; padding:2px 7px;");
+    answerThree.setAttribute("style", "width:fit-content; text-align:left; margin:1% 25%; background-color:#AA36B5; color:#FFFFFF; border:1px solid #000; border-radius:5px; padding:2px 7px;");
+    answerFour.setAttribute("style", "width:fit-content; text-align:left; margin:1% 25%; background-color:#AA36B5; color:#FFFFFF; border:1px solid #000; border-radius:5px; padding:2px 7px;");
 
 }
 
@@ -152,6 +152,7 @@ function finalScore(timer) {
     pScore.textContent = "Your final score is: " + timer;
     labelForm.textContent = "Enter initials: ";
     buttonForm.textContent = "Submit";
+    
 
     initialsForm.setAttribute("style", "width:50%; text-align:left; margin:2% 25%;");
     pScore.setAttribute("style", "color:#000000; margin:1% 25%; text-align:left;");
@@ -165,6 +166,13 @@ function highScores() {
     initialsForm.remove();
     pScore.remove();
     body.appendChild(scoreList);
+    scoreList.appendChild(scoreOne);
+    scoreList.appendChild(scoreTwo);
+    scoreList.appendChild(scoreThree);
+    scoreList.appendChild(scoreFour);
+    scoreList.appendChild(scoreFive);
+
+    scoreOne.textContent = inputForm.value + " - " + timer;
 }
 
 
@@ -182,5 +190,3 @@ buttonForm.addEventListener("click", highScores);
 
 
 //highscores page
-//css formatting for timer and highlight
-//css for button hover
