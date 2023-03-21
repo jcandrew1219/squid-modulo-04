@@ -1,0 +1,28 @@
+header {
+    display:block;
+    
+}
+
+h4 {
+    margin: 5px 0px;
+}
+
+#highscores {
+    text-align:left;
+    float:left;
+    width:50%;
+}
+
+#countdown {
+    text-align:right;
+    float:right;
+    width:50%
+}
+
+button:hover {
+    box-shadow: 0 0 15px #D1D1D1 inset;
+}
+
+ul li:hover {
+    box-shadow: 0 0 15px #D1D1D1 inset;
+}
