@@ -6,6 +6,8 @@ This project was meant to help teach me the basics of Web API's. I started this 
 
 ## Webpage Link
 
+https://jcandrew1219.github.io/squid-modulo-04/
+
 ## Usage
 
 The user can paricipate in a coding quiz on JavaScript basics. At the end the user will recieve a score.
